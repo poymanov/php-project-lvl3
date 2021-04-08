@@ -1,4 +1,5 @@
 {
+    "name": "Hexlet Code",
     "private": true,
     "engines": {
         "node": "14.x",
@@ -12,9 +13,7 @@
         "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --disable-host-check --config=node_modules/laravel-mix/setup/webpack.config.js",
         "prod": "npm run production",
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "postinstall": "npm run prod",
-        "heroku-prebuild": "npm install -f",
-        "heroku-postbuild": "npm run production"
+        "postinstall": "npm run prod"
     },
     "devDependencies": {
         "axios": "^0.19",
