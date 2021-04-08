@@ -1,5 +1,5 @@
 {
-    "name": "Hexlet Code",
+    "name": "hexlet-code",
     "private": true,
     "engines": {
         "node": "14.x",
