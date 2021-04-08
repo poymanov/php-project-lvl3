@@ -43,7 +43,7 @@ backend-create-storage:
 backend-test:
 	docker-compose run --rm php-cli php artisan test
 
-backend-bash:
+backend-shell:
 	docker-compose run --rm php-cli bash
 
 backend-migrations:
@@ -54,6 +54,12 @@ backend-seed:
 
 backend-generate-key:
 	docker-compose run --rm php-cli php artisan key:generate
+
+backend-lint:
+	docker-compose run --rm php-cli composer phpcs
+
+backend-lint-fix:
+	docker-compose run --rm php-cli composer phpcbf
 
 frontend-clear:
 	docker run --rm -v ${PWD}:/app -w /app alpine sh -c 'rm -rf .ready'
