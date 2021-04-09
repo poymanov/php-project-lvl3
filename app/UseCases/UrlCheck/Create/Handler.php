@@ -41,4 +41,3 @@ class Handler
         $url->checks()->save($urlCheck);
     }
 }
-

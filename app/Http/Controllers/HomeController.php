@@ -18,6 +18,7 @@ class HomeController extends Controller
         }
 
         $model = new Url();
+
         return view('home', compact('model'));
     }
 }

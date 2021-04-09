@@ -31,7 +31,8 @@ class CreateRequest extends FormRequest
     public function messages()
     {
         return [
-            'name' => 'Некорректный URL',
+            'name.required' => 'Некорректный URL',
+            'name.url' => 'Некорректный URL',
         ];
     }
 }
