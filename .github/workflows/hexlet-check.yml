@@ -27,7 +27,9 @@ jobs:
           hexlet-id: ${{ secrets.HEXLET_ID }}
       - name: Install Dependencies
         run: composer install
-      - name: Lint
+      - name: Copy .env
+        run: cp .env.example .env        
+      - name: Generate Secret Key
         run: php artisan key:generate
       - name: Lint
         run: composer phpcs
