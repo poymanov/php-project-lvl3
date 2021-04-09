@@ -34,7 +34,11 @@ class Handler
 
         $urlCheck              = new UrlCheck();
         $urlCheck->status_code = $analyzeData['statusCode'];
+        $urlCheck->h1          = $analyzeData['header'];
+        $urlCheck->keywords    = $analyzeData['keywords'];
+        $urlCheck->description = $analyzeData['description'];
 
         $url->checks()->save($urlCheck);
     }
 }
+

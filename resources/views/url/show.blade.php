@@ -41,9 +41,9 @@
                 <tr>
                     <td>{{ $check->id }}</td>
                     <td>{{ $check->status_code }}</td>
-                    <td>{{ $check->h1 }}</td>
-                    <td>{{ $check->keywords }}</td>
-                    <td>{{ $check->description }}</td>
+                    <td class="text-wrap">{{ $check->h1 }}</td>
+                    <td class="text-wrap">{{ $check->keywords }}</td>
+                    <td class="text-wrap">{{ $check->description }}</td>
                     <td>{{ $check->created_at }}</td>
                 </tr>
             @endforeach
