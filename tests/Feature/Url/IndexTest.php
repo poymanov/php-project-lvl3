@@ -46,7 +46,7 @@ class IndexTest extends TestCase
     /**
      * Отображение даты последней проверки url
      */
-    public function testUrlLastCheck()
+    public function testUrlLastCheckDate()
     {
         $url = Url::factory()->create();
 
@@ -56,6 +56,23 @@ class IndexTest extends TestCase
         $response = $this->get('/urls');
 
         $response->assertSee($secondUrlCheck->created_at);
+        $response->assertDontSee($firstUrlCheck->created_at);
+    }
+
+    /**
+     * Отображение статуса последней проверки url
+     */
+    public function testUrlLastCheckStatus()
+    {
+        $url = Url::factory()->create();
+
+        $firstUrlCheck  = UrlCheck::factory()->create(['url_id' => $url->id]);
+        $secondUrlCheck = UrlCheck::factory()->create(['url_id' => $url->id, 'created_at' => Carbon::now()->addHour()]);
+
+        $response = $this->get('/urls');
+
+        $response->assertSee($secondUrlCheck->created_at);
+        $response->assertSee($secondUrlCheck->status_code);
         $response->assertDontSee($firstUrlCheck->created_at);
     }
 }
