@@ -14,9 +14,7 @@ class HomeController extends Controller
         $errors = Session::get('errors');
 
         if ($errors) {
-            foreach ($errors->all() as $error) {
-                flash($error)->error();
-            }
+            flash('Некорректный URL')->error();
         }
 
         $model = new Url();
