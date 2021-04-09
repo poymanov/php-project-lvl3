@@ -15,11 +15,11 @@
                 </tr>
                 <tr>
                     <td>Дата создания</td>
-                    <td></td>
+                    <td>{{ $url->created_at }}</td>
                 </tr>
                 <tr>
                     <td>Дата обновления</td>
-                    <td></td>
+                    <td>{{ $url->updated_at }}</td>
                 </tr>
             </table>
         </div>
