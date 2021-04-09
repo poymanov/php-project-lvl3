@@ -25,7 +25,11 @@ jobs:
         uses: hexlet/project-action@release
         with:
           hexlet-id: ${{ secrets.HEXLET_ID }}
-      - name: Install Dependencies
+      - name: Install Frontend Dependencies
+        run: npm install
+      - name: Run npm
+        run: npm run prod
+      - name: Install Backend Dependencies
         run: composer install
       - name: Copy .env
         run: cp .env.example .env        
