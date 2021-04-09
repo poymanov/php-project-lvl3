@@ -24,7 +24,7 @@ docker-build:
 	docker-compose build
 
 wait-db:
-	docker-compose run --rm php-cli wait-for-it db:3306 -t 30
+	docker-compose run --rm php-cli wait-for-it db:5432 -t 30
 
 backend-permissions:
 	docker run --rm -v ${PWD}:/app -w /app alpine chmod 777 -R storage bootstrap

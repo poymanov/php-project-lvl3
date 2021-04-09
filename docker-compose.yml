@@ -28,14 +28,14 @@ services:
     depends_on:
       - db
   db:
-    image: mysql:5.7
+    image: postgres
     volumes:
-      - db:/var/lib/mysql
+      - db:/var/lib/postgresql/data
     environment:
-      MYSQL_DATABASE: page_analyzer
-      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      POSTGRES_USER: page_analyzer
+      POSTGRES_PASSWORD: 123qwe
     ports:
-      - "3306:3306"
+      - "5432:5432"
   node-watch:
     build:
       context: ./docker/node
