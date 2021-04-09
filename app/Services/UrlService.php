@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use App\Models\Url;
+use App\Models\UrlCheck;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
@@ -16,6 +18,6 @@ class UrlService
      */
     public function getAll(): Collection
     {
-        return DB::table('urls')->get();
+        return Url::with('checks')->get();
     }
 }

@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Tests\Feature\Url;
 
 use App\Models\Url;
+use App\Models\UrlCheck;
+use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -30,7 +32,7 @@ class IndexTest extends TestCase
      */
     public function testShowUrls()
     {
-        $firstUrl = Url::factory()->create();
+        $firstUrl  = Url::factory()->create();
         $secondUrl = Url::factory()->create();
 
         $response = $this->get('/urls');
@@ -39,5 +41,21 @@ class IndexTest extends TestCase
 
         $response->assertSee($secondUrl->id);
         $response->assertSee($secondUrl->name);
+    }
+
+    /**
+     * Отображение даты последней проверки url
+     */
+    public function testUrlLastCheck()
+    {
+        $url = Url::factory()->create();
+
+        $firstUrlCheck  = UrlCheck::factory()->create(['url_id' => $url->id]);
+        $secondUrlCheck = UrlCheck::factory()->create(['url_id' => $url->id, 'created_at' => Carbon::now()->addHour()]);
+
+        $response = $this->get('/urls');
+
+        $response->assertSee($secondUrlCheck->created_at);
+        $response->assertDontSee($firstUrlCheck->created_at);
     }
 }

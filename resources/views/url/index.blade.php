@@ -16,7 +16,11 @@
                         <td>{{ $url->id }}</td>
                         <td><a href="{{ route('url.show', $url->id)  }}">{{ $url->name }}</a></td>
                         <td></td>
-                        <td></td>
+                        <td>
+                            @if($url->checks()->exists())
+                                {{ $url->latestCheck()->created_at }}
+                            @endif
+                        </td>
                     </tr>
                 @endforeach
             </table>
