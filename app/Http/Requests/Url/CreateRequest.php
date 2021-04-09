@@ -27,4 +27,11 @@ class CreateRequest extends FormRequest
             'name' => 'required|string|max:255|url|unique:urls',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'name' => 'Некорректный URL',
+        ];
+    }
 }
