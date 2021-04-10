@@ -8,6 +8,7 @@ use App\Http\Requests\Url\CreateRequest;
 use App\Models\Url;
 use App\Services\UrlService;
 use App\UseCases\Url\Create;
+use Illuminate\Http\Request;
 
 class UrlController extends Controller
 {
@@ -33,7 +34,7 @@ class UrlController extends Controller
         return view('url.show', compact('url'));
     }
 
-    public function store(CreateRequest $request)
+    public function store(Request $request)
     {
         $command       = new Create\Command();
         $command->name = $request->get('name');
