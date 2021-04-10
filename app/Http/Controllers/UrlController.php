@@ -36,6 +36,10 @@ class UrlController extends Controller
 
     public function store(Request $request)
     {
+        if (empty($request->get('name'))) {
+            return redirect()->back();
+        }
+
         $command       = new Create\Command();
         $command->name = $request->get('name');
 
